@@ -1,5 +1,9 @@
 package com.splunk.test.homework.util;
 
+import com.splunk.test.homework.model.Movie;
+
+import java.util.List;
+
 public class Utility {
 
     private static final String MOVIE_API_URL = "https://splunk.mocklab.io/movies";
@@ -21,5 +25,10 @@ public class Utility {
             builder.append(COUNT_PARAM).append(count);
         }
         return builder.toString();
+    }
+
+    public static int getMovieCountWithMoreThanOrEqualToGivenSum(List<Movie> movies, int totalSum) {
+        // run some logic
+        return 10;
     }
 }
