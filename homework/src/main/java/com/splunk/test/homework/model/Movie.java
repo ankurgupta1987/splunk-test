@@ -10,124 +10,136 @@ import java.math.BigDecimal;
  */
 public class Movie {
 
-    public Movie() {
+    public Movie() {}
+
+    private Results[] results;
+
+    public Results[] getResults() {
+        return results;
     }
 
-    @JsonProperty("vote_count")
-    private long voteCount;
-
-    private long id;
-
-    @JsonProperty("video")
-    private boolean isVideo;
-
-    @JsonProperty("vote_average")
-    private long voteAvg;
-
-    private String title;
-
-    private BigDecimal popularity;
-
-    @JsonProperty("original_language")
-    private String originalLanguage;
-
-    @JsonProperty("original_title")
-    private String originalTitle;
-
-    @JsonProperty("genre_ids")
-    private Integer[] genreIds;
-
-    @JsonProperty("adult")
-    private boolean isAdult;
-
-    private String overview;
-
-
-    public long getVoteCount() {
-        return voteCount;
+    public void setResults(Results[] results) {
+        this.results = results;
     }
 
-    public void setVoteCount(long voteCount) {
-        this.voteCount = voteCount;
-    }
+    private class Results {
 
-    public long getId() {
-        return id;
-    }
+        @JsonProperty("vote_count")
+        private long voteCount;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+        private long id;
 
-    public boolean isVideo() {
-        return isVideo;
-    }
+        @JsonProperty("video")
+        private boolean isVideo;
 
-    public void setVideo(boolean video) {
-        isVideo = video;
-    }
+        @JsonProperty("vote_average")
+        private long voteAvg;
 
-    public long getVoteAvg() {
-        return voteAvg;
-    }
+        private String title;
 
-    public void setVoteAvg(long voteAvg) {
-        this.voteAvg = voteAvg;
-    }
+        private BigDecimal popularity;
 
-    public String getTitle() {
-        return title;
-    }
+        @JsonProperty("original_language")
+        private String originalLanguage;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        @JsonProperty("original_title")
+        private String originalTitle;
 
-    public BigDecimal getPopularity() {
-        return popularity;
-    }
+        @JsonProperty("genre_ids")
+        private Integer[] genreIds;
 
-    public void setPopularity(BigDecimal popularity) {
-        this.popularity = popularity;
-    }
+        @JsonProperty("adult")
+        private boolean isAdult;
 
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
+        private String overview;
 
-    public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
-    }
 
-    public String getOriginalTitle() {
-        return originalTitle;
-    }
+        public long getVoteCount() {
+            return voteCount;
+        }
 
-    public void setOriginalTitle(String originalTitle) {
-        this.originalTitle = originalTitle;
-    }
+        public void setVoteCount(long voteCount) {
+            this.voteCount = voteCount;
+        }
 
-    public Integer[] getGenreIds() {
-        return genreIds;
-    }
+        public long getId() {
+            return id;
+        }
 
-    public void setGenreIds(Integer[] genreIds) {
-        this.genreIds = genreIds;
-    }
+        public void setId(long id) {
+            this.id = id;
+        }
 
-    public boolean isAdult() {
-        return isAdult;
-    }
+        public boolean isVideo() {
+            return isVideo;
+        }
 
-    public void setAdult(boolean adult) {
-        isAdult = adult;
-    }
+        public void setVideo(boolean video) {
+            isVideo = video;
+        }
 
-    public String getOverview() {
-        return overview;
-    }
+        public long getVoteAvg() {
+            return voteAvg;
+        }
 
-    public void setOverview(String overview) {
-        this.overview = overview;
+        public void setVoteAvg(long voteAvg) {
+            this.voteAvg = voteAvg;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public BigDecimal getPopularity() {
+            return popularity;
+        }
+
+        public void setPopularity(BigDecimal popularity) {
+            this.popularity = popularity;
+        }
+
+        public String getOriginalLanguage() {
+            return originalLanguage;
+        }
+
+        public void setOriginalLanguage(String originalLanguage) {
+            this.originalLanguage = originalLanguage;
+        }
+
+        public String getOriginalTitle() {
+            return originalTitle;
+        }
+
+        public void setOriginalTitle(String originalTitle) {
+            this.originalTitle = originalTitle;
+        }
+
+        public Integer[] getGenreIds() {
+            return genreIds;
+        }
+
+        public void setGenreIds(Integer[] genreIds) {
+            this.genreIds = genreIds;
+        }
+
+        public boolean isAdult() {
+            return isAdult;
+        }
+
+        public void setAdult(boolean adult) {
+            isAdult = adult;
+        }
+
+        public String getOverview() {
+            return overview;
+        }
+
+        public void setOverview(String overview) {
+            this.overview = overview;
+        }
     }
 }

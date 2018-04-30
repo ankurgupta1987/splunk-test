@@ -5,6 +5,7 @@ package com.splunk.test.homework.model;
  * Class used as a model for posting the movies to the rest API
  */
 public class PostMovie {
+
     public PostMovie(){}
 
     private String name;

@@ -18,3 +18,5 @@ To add your first "page", click the [[Edit][.FrontPage?edit]] button and add a [
 |enter|secondPart|World|
 |press|join|
 |check|together|Hello, World|
+
+ActionFixtureTest

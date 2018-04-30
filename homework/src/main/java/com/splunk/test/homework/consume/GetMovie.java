@@ -20,6 +20,7 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 public class GetMovie {
 
+
     @RequestMapping(method = RequestMethod.GET, value="emptyParams")
     ResponseEntity<?> emptyParams(@PathVariable String q, @PathVariable long count) {
         return null;

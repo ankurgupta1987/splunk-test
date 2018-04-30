@@ -17,10 +17,6 @@ public class GetMovieTest {
     }
 
     @Test
-    public void emptyParams() {
-    }
-
-    @Test
     public void countCheck() {
     }
 
