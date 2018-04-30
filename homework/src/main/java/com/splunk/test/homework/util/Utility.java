@@ -2,11 +2,11 @@ package com.splunk.test.homework.util;
 
 public class Utility {
 
-    private static final String MOVIE_API_URL = "https://splunk.mocklab.io/movies";
-    private static final String QUESTION_MARK = "?";
-    private static final String AMPERSAND = "&";
-    private static final String Q_PARAM = "q=";
-    private static final String COUNT_PARAM = "count=";
+    public static final String MOVIE_API_URL = "https://splunk.mocklab.io/movies";
+    public static final String QUESTION_MARK = "?";
+    public static final String AMPERSAND = "&";
+    public static final String Q_PARAM = "q=";
+    public static final String COUNT_PARAM = "count=";
 
     public static String prepareUrl(String q, String count) {
         StringBuilder builder = new StringBuilder();

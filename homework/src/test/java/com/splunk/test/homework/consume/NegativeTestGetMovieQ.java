@@ -24,7 +24,7 @@ public class NegativeTestGetMovieQ {
     public void setUp() throws Exception {
         restTemplate = new RestTemplate();
         headers = new HttpHeaders();
-        headers.set("Content-Type", "application/json");
+        headers.set("Accept", "application/json");
         entity = new HttpEntity(headers);
     }
 
@@ -42,6 +42,7 @@ public class NegativeTestGetMovieQ {
         url = Utility.prepareUrl(null,"2");
         response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         assertEquals("Missing required param should result in 404 response code", response.getStatusCodeValue(), 404);
+        assertTrue("Response body should be empty", response.getBody().isEmpty());
     }
 
     @Test
@@ -49,6 +50,7 @@ public class NegativeTestGetMovieQ {
         url = Utility.prepareUrl("P/{><","2");
         response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         assertEquals("Malformed should result in 400 response code", response.getStatusCodeValue(), 400);
+        assertTrue("Response body should be empty", response.getBody().isEmpty());
     }
 
     @Test
@@ -72,5 +74,6 @@ public class NegativeTestGetMovieQ {
         url = Utility.prepareUrl("batman","2");
         response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
         assertEquals("POST request should result in 405 response code", response.getStatusCodeValue(), 405);
+        assertTrue("Response body should be empty", response.getBody().isEmpty());
     }
 }

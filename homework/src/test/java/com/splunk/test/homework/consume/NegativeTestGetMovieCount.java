@@ -24,7 +24,7 @@ public class NegativeTestGetMovieCount {
     public void setUp() throws Exception {
         restTemplate = new RestTemplate();
         headers = new HttpHeaders();
-        headers.set("Content-Type", "application/json");
+        headers.set("Accept", "application/json");
         entity = new HttpEntity(headers);
     }
 
