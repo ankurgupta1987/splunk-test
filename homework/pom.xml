@@ -59,6 +59,12 @@
 			<version>20180127</version>
 		</dependency>
 
+		<!--  Gson dependency -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

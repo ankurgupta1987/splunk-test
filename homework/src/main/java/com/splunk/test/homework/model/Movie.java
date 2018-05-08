@@ -1,5 +1,6 @@
 package com.splunk.test.homework.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
@@ -8,6 +9,7 @@ import java.math.BigDecimal;
  * @author Ankur
  * Class used as a model for getting the movies from Movie API
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
 
     public Movie() {}
@@ -22,7 +24,7 @@ public class Movie {
         this.results = results;
     }
 
-    private class Results {
+    public class Results {
 
         @JsonProperty("vote_count")
         private long voteCount;
@@ -38,6 +40,9 @@ public class Movie {
         private String title;
 
         private BigDecimal popularity;
+
+        @JsonProperty("poster_path")
+        private String posterPath;
 
         @JsonProperty("original_language")
         private String originalLanguage;
@@ -141,5 +146,15 @@ public class Movie {
         public void setOverview(String overview) {
             this.overview = overview;
         }
+
+        public String getPosterPath() {
+            return posterPath;
+        }
+
+        public void setPosterPath(String posterPath) {
+            this.posterPath = posterPath;
+        }
+
+
     }
 }
