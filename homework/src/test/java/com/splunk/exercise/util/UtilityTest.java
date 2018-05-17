@@ -4,12 +4,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.splunk.exercise.util.Constants.*;
+import static com.splunk.exercise.util.Constants.AMPERSAND;
+import static com.splunk.exercise.util.Constants.COUNT_PARAM;
 import static org.junit.Assert.*;
 
 public class UtilityTest {
 
+    private Utility utility;
+
     @Before
     public void setUp() throws Exception {
+        utility = new Utility();
     }
 
     @After
@@ -18,10 +24,15 @@ public class UtilityTest {
 
     @Test
     public void prepareUrl() {
+        String url = utility.prepareUrl(MOVIE_SEARCH_QUERY, "0");
+        assertTrue(url != null);
+        assertTrue(url.equals(MOVIE_API_URL+"?q=batman&count=0"));
     }
+
 
     @Test
     public void invokeRestAPI() {
+
     }
 
     @Test
@@ -178,5 +189,117 @@ public class UtilityTest {
 
     @Test
     public void postMovie() {
+    }
+
+    @Test
+    public void prepareUrl1() {
+    }
+
+    @Test
+    public void invokeRestAPI2() {
+    }
+
+    @Test
+    public void getResponseStatusCode2() {
+    }
+
+    @Test
+    public void getResponseBody2() {
+    }
+
+    @Test
+    public void getResponseHeader2() {
+    }
+
+    @Test
+    public void checkMovieCount2() {
+    }
+
+    @Test
+    public void checkForTheDuplicateMovieImage2() {
+    }
+
+    @Test
+    public void checkIfPosterPathLinksAreValid1() {
+    }
+
+    @Test
+    public void checkForOrderOfMovies1() {
+    }
+
+    @Test
+    public void checkIfGenreIdSumGreaterThan4002() {
+    }
+
+    @Test
+    public void ifMovieTitlesContainsPalindrome2() {
+    }
+
+    @Test
+    public void checkIfTitleContainsAnotherTitle2() {
+    }
+
+    @Test
+    public void titleContainsAnotherTitleUtil2() {
+    }
+
+    @Test
+    public void titleHasPalindrome2() {
+    }
+
+    @Test
+    public void isPalindrome2() {
+    }
+
+    @Test
+    public void validateIfMovieOrderIsSame2() {
+    }
+
+    @Test
+    public void checkDuplicateImageUtil2() {
+    }
+
+    @Test
+    public void extractMovieImageName2() {
+    }
+
+    @Test
+    public void arePosterPathsValid2() {
+    }
+
+    @Test
+    public void validatePosterPath2() {
+    }
+
+    @Test
+    public void convertMovieObjectToJSONString1() {
+    }
+
+    @Test
+    public void postMovie1() {
+    }
+
+    @Test
+    public void checkForResultsInReponse() {
+    }
+
+    @Test
+    public void parseAddMovieResponse() {
+    }
+
+
+    public String prepareUrlInTestClass(String q, String count) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(MOVIE_API_URL).append(QUESTION_MARK);
+        if (q != null) {
+            builder.append(Q_PARAM).append(q);
+        }
+        if (count != null) {
+            if (q != null) {
+                builder.append(AMPERSAND);
+            }
+            builder.append(COUNT_PARAM).append(count);
+        }
+        return builder.toString();
     }
 }

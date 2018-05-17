@@ -1,6 +1,7 @@
 package com.splunk.exercise.behaviour;
 
 import com.splunk.exercise.Ibehaviour.IGetMoviesRequirementsBehaviour;
+import com.splunk.exercise.exceptions.BaseException;
 import com.splunk.exercise.util.Utility;
 import org.springframework.http.ResponseEntity;
 
@@ -21,7 +22,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
     }
 
     @Override
-    public void setupDataForRequirements() throws IOException{
+    public void setupDataForRequirements()  throws BaseException {
         url = utility.prepareUrl("batman","0");
         response = utility.invokeRestAPI(url, true);
         int responseCode = utility.getResponseStatusCode(response);
@@ -32,7 +33,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
      * Requirement SPL-001: No two movies should have the same image
      */
     @Override
-    public boolean checkDuplicateMovieImage() throws IOException{
+    public boolean checkDuplicateMovieImage() throws BaseException{
         boolean areDuplicateImagesPresent = utility.checkForTheDuplicateMovieImage(responseBody);
         return areDuplicateImagesPresent;
     }
@@ -41,7 +42,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
      * Requirement SPL-002: Check if the poster path links are valid
      */
     @Override
-    public boolean checkIfPosterPathLinksAreValid() {
+    public boolean checkIfPosterPathLinksAreValid() throws BaseException{
         boolean arePosterPathLinksValid = utility.checkIfPosterPathLinksAreValid(responseBody);
         return arePosterPathLinksValid;
     }
@@ -50,7 +51,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
      * Requirement SPL-003: Sorting Requirement
      */
     @Override
-    public boolean checkForOrderOfMovies() {
+    public boolean checkForOrderOfMovies() throws BaseException {
         boolean isMovieOrderAsRequired = utility.checkForOrderOfMovies(responseBody);
         return isMovieOrderAsRequired;
     }
@@ -60,7 +61,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
      * should be no more than 7
      */
     @Override
-    public boolean checkIfGenreIdSumGreaterThan400() {
+    public boolean checkIfGenreIdSumGreaterThan400() throws BaseException {
         boolean isSumGreater = utility.checkIfGenreIdSumGreaterThan400(responseBody);
         return isSumGreater;
     }
@@ -69,7 +70,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
      * Requirement SPL-005: At least one movie whose title has a palindrome in it.
      */
     @Override
-    public boolean ifMovieTitlesContainsPalindrome() {
+    public boolean ifMovieTitlesContainsPalindrome() throws BaseException {
         boolean isPalindromePresent = utility.ifMovieTitlesContainsPalindrome(responseBody);
         return isPalindromePresent;
     }
@@ -79,7 +80,7 @@ public class GetMoviesRequirementsBehaviour implements IGetMoviesRequirementsBeh
      * Requirement SPL-006: At least two movies whose title contain the title of another movie.
      */
     @Override
-    public boolean checkIfTitleContainsAnotherTitle() throws IOException {
+    public boolean checkIfTitleContainsAnotherTitle()  throws BaseException {
         boolean isTitlePresentInAnotherTitle = utility.checkIfTitleContainsAnotherTitle(responseBody);
         return isTitlePresentInAnotherTitle;
     }

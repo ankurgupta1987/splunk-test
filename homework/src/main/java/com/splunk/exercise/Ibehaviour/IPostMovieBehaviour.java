@@ -1,23 +1,23 @@
 package com.splunk.exercise.Ibehaviour;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.splunk.exercise.exceptions.BaseException;
+import com.splunk.exercise.model.ResponseUtil;
 
 public interface IPostMovieBehaviour {
-    void postRequiredFieldsEmpty() throws JsonProcessingException;
+    ResponseUtil postRequiredFieldsEmpty() throws JsonProcessingException, BaseException;
 
-    void postDescFieldEmpty() throws JsonProcessingException;
+    ResponseUtil postDescFieldEmpty() throws JsonProcessingException, BaseException;
 
-    void postNameFieldEmpty() throws JsonProcessingException;
+    ResponseUtil postNameFieldEmpty() throws JsonProcessingException, BaseException;
 
-    void postMalformedJson() throws JsonProcessingException;
+    ResponseUtil postMalformedJson() throws JsonProcessingException, BaseException;
 
-    void inCorrectHeader() throws JsonProcessingException;
+    ResponseUtil inCorrectHeader() throws JsonProcessingException, BaseException;
 
-    void checkForXSS() throws JsonProcessingException;
+    ResponseUtil checkForXSS() throws JsonProcessingException, BaseException;
 
-    void addMovie() throws JsonProcessingException;
+    ResponseUtil addMovie() throws JsonProcessingException, BaseException;
 
-    //Post request should create one more record
-    //else change it to put (idempotent)
-    void addSameMovieAgain() throws JsonProcessingException;
+    ResponseUtil addSameMovieAgain() throws JsonProcessingException, BaseException;
 }

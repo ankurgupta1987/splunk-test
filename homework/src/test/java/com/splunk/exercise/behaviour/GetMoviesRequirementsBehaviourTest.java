@@ -1,5 +1,8 @@
 package com.splunk.exercise.behaviour;
 
+import com.splunk.exercise.exceptions.BaseException;
+import com.splunk.exercise.model.ResponseUtil;
+import com.splunk.exercise.util.Utility;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,8 +11,14 @@ import static org.junit.Assert.*;
 
 public class GetMoviesRequirementsBehaviourTest {
 
+    private GetMoviesRequirementsBehaviour getMoviesRequirementsBehaviour;
+    private Utility utility;
+    private ResponseUtil responseUtil;
+
     @Before
     public void setUp() throws Exception {
+        getMoviesRequirementsBehaviour = new GetMoviesRequirementsBehaviour(new Utility());
+        getMoviesRequirementsBehaviour.setupDataForRequirements();
     }
 
     @After
@@ -21,7 +30,8 @@ public class GetMoviesRequirementsBehaviourTest {
     }
 
     @Test
-    public void checkDuplicateMovieImage() {
+    public void checkDuplicateMovieImage() throws BaseException {
+        boolean containsDuplicate = getMoviesRequirementsBehaviour.checkDuplicateMovieImage();
     }
 
     @Test

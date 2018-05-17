@@ -1,13 +1,17 @@
 package com.splunk.exercise.Ibehaviour;
 
+import com.splunk.exercise.model.ResponseUtil;
+
 public interface IGetMoviesWithCountBehaviour {
-    void sendNegativeCount();
+    ResponseUtil sendNegativeCount();
 
-    void sendHighCountValue();
+    ResponseUtil sendHighCountValue();
 
-    void sendFloatingPointCount();
+    ResponseUtil sendFloatingPointCount();
 
-    void sendCountAsWord();
+    ResponseUtil sendCountAsWord();
 
-    void sqlInjectionWithCount();
+    ResponseUtil sqlInjectionWithCount();
+
+    ResponseUtil emptyCount();
 }

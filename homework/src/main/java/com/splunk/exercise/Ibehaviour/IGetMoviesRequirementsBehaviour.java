@@ -1,19 +1,21 @@
 package com.splunk.exercise.Ibehaviour;
 
+import com.splunk.exercise.exceptions.BaseException;
+
 import java.io.IOException;
 
 public interface IGetMoviesRequirementsBehaviour {
-    void setupDataForRequirements() throws IOException;
+    void setupDataForRequirements() throws IOException, BaseException;
 
-    boolean checkDuplicateMovieImage() throws IOException;
+    boolean checkDuplicateMovieImage() throws IOException, BaseException;
 
-    boolean checkIfPosterPathLinksAreValid();
+    boolean checkIfPosterPathLinksAreValid() throws BaseException;
 
-    boolean checkForOrderOfMovies();
+    boolean checkForOrderOfMovies() throws BaseException;
 
-    boolean checkIfGenreIdSumGreaterThan400();
+    boolean checkIfGenreIdSumGreaterThan400() throws BaseException;
 
-    boolean ifMovieTitlesContainsPalindrome();
+    boolean ifMovieTitlesContainsPalindrome() throws BaseException;
 
-    boolean checkIfTitleContainsAnotherTitle() throws IOException;
+    boolean checkIfTitleContainsAnotherTitle() throws IOException, BaseException;
 }

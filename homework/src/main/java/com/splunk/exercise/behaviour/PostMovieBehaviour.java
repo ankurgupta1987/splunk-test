@@ -3,6 +3,8 @@ package com.splunk.exercise.behaviour;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.splunk.exercise.Ibehaviour.IPostMovieBehaviour;
+import com.splunk.exercise.exceptions.BaseException;
+import com.splunk.exercise.model.ResponseUtil;
 import com.splunk.exercise.util.Utility;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -19,6 +21,7 @@ public class PostMovieBehaviour implements IPostMovieBehaviour {
     private HttpHeaders httpHeaders;
     private Utility utility;
     private ResponseEntity<String> response;
+    private ResponseUtil responseUtil;
 
     public PostMovieBehaviour(Utility utility){
         this.utility = utility;
@@ -27,78 +30,92 @@ public class PostMovieBehaviour implements IPostMovieBehaviour {
     }
 
     @Override
-    public void postRequiredFieldsEmpty() throws JsonProcessingException {
+    public ResponseUtil postRequiredFieldsEmpty() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(EMPTY_STRING, EMPTY_STRING);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 
     @Override
-    public void postDescFieldEmpty() throws JsonProcessingException {
+    public ResponseUtil postDescFieldEmpty() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(MOVIE_NAME, EMPTY_STRING);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 
     @Override
-    public void postNameFieldEmpty() throws JsonProcessingException {
+    public ResponseUtil postNameFieldEmpty() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(EMPTY_STRING, MOVIE_DESC);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 
     @Override
-    public void postMalformedJson() throws JsonProcessingException {
+    public ResponseUtil postMalformedJson() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(EMPTY_STRING, EMPTY_STRING);
         json += TEST_STRING ;
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 
     @Override
-    public void inCorrectHeader() throws JsonProcessingException {
+    public ResponseUtil inCorrectHeader() throws  BaseException {
         String json = utility.convertMovieObjectToJSONString(EMPTY_STRING, EMPTY_STRING);
         httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_ATOM_XML);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 
     @Override
-    public void checkForXSS() throws JsonProcessingException {
+    public ResponseUtil checkForXSS() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(TEST_JAVASCRIPT_STRING, EMPTY_STRING);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 
     @Override
-    public void addMovie() throws JsonProcessingException {
+    public ResponseUtil addMovie() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(MOVIE_NAME, MOVIE_DESC);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
-    //Post request should create one more record
-    //else change it to put (idempotent)
     @Override
-    public void addSameMovieAgain() throws JsonProcessingException {
+    public ResponseUtil addSameMovieAgain() throws BaseException {
         String json = utility.convertMovieObjectToJSONString(MOVIE_NAME, MOVIE_DESC);
         response = utility.postMovie(json, httpHeaders);
         int responseCode = utility.getResponseStatusCode(response);
         String responseBody = utility.getResponseBody(response);
+        responseUtil = new ResponseUtil(responseCode, responseBody);
+        return responseUtil;
     }
 
 }

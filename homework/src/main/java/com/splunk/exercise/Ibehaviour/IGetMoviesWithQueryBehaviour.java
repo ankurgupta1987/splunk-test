@@ -1,19 +1,22 @@
 package com.splunk.exercise.Ibehaviour;
 
+import com.splunk.exercise.exceptions.BaseException;
+import com.splunk.exercise.model.ResponseUtil;
+
 import java.io.IOException;
 
 public interface IGetMoviesWithQueryBehaviour {
-    void sendOnlyCount();
+    ResponseUtil sendOnlyCount() throws BaseException;
 
-    void sendQMalformed();
+    ResponseUtil sendQMalformed() throws BaseException;
 
-    void querySQLInjection();
+    ResponseUtil querySQLInjection() throws BaseException;
 
-    void sendQWildcard();
+    ResponseUtil sendQWildcard() throws BaseException;
 
-    void useDiffVerb();
+    ResponseUtil useDiffVerb() throws BaseException;
 
-    void queryForLimitingCount() throws IOException;
+    ResponseUtil queryForLimitingCount() throws IOException, BaseException;
 
-    void queryEmptyString() throws IOException;
+    ResponseUtil queryEmptyString() throws IOException, BaseException;
 }

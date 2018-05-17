@@ -4,7 +4,7 @@ public class Constants {
     public static final String MOVIE_SEARCH_QUERY = "batman";
     public static final String NEGATIVE_COUNT = "-2";
     public static final String COUNT_TWO = "2";
-    public static final String HIGH_COUNT = "9999999999999999999999999999999999999";
+    public static final String HIGH_COUNT = "99999999999999999999999999999999999";
     public static final String FLOATING_PT_COUNT = "2.58";
     public static final String COUNT_AS_WORD = "TWO";
     public static final String SQL_INJECTION_STRING = "'%20or%20'1'='1";
@@ -26,5 +26,7 @@ public class Constants {
     public static final String POSTER_PATH_SUFFIX = "jpg?dl=0";
     public static final int GENRE_ID_SUM = 400;
     public static final int MOVIE_COUNT = 7;
+
+    public static final int RESPONSE_STATUS_CODE_400 = 400;
 
 }
